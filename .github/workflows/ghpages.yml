@@ -1,29 +1,8 @@
 name: Deploy Docs to GitHub
 
 on:
-  push:
-    paths-ignore:
-    - '.github/workflows/**'
-    - '!.github/workflows/ghpages.yml'
-    - 'CONTRIBUTING.md'
-    - 'COPYING'
-    - '.gitignore'
-    - '.editorconfig'
-    - 'NEWS'
-    - 'README.md'
-    - 'style_unify'
-
-  pull_request:
-    paths-ignore:
-    - '.github/workflows/**'
-    - '!.github/workflows/ghpages.yml'
-    - 'CONTRIBUTING.md'
-    - 'COPYING'
-    - '.gitignore'
-    - '.editorconfig'
-    - 'NEWS'
-    - 'README.md'
-    - 'style_unify'
+  release:
+    types: [published]
 
 concurrency:
   group: "pages"
