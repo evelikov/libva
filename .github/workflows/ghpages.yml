@@ -25,6 +25,15 @@ on:
     - 'README.md'
     - 'style_unify'
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -51,11 +60,6 @@ jobs:
 
   deploy:
     needs: build
-
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
 
     environment:
       name: github-pages
